@@ -8,8 +8,8 @@ services:
     ports:
       - "2222:22"
     environment:
-      SFTP_USER: ${SFTP_USER}
-      SFTP_PASS: ${SFTP_PASS}
+      SFTP_USER: ${SFTP_USER:-user}
+      SFTP_PASS: ${SFTP_PASS:-password}
     volumes:
       - sftp-volume:/uploads
 
