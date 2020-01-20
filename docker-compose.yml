@@ -2,8 +2,7 @@ version: '3'
  
 services:
   sftp-server:
-    build:
-      context: .
+    image: bilonic/sftp:latest
     hostname: sftp-server
     ports:
       - "2222:22"
