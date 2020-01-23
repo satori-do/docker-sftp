@@ -1,14 +1,21 @@
 #!/bin/bash
 set -e
 
+users=(${SFTP_USER})
+passwords=(${SFTP_PASS})
+
 printf "\n\033[0;44m---> Creating SFTP user.\033[0m\n"
 
 addgroup sftp
-mkdir /uploads/${SFTP_USER}
-mkdir /uploads/${SFTP_USER}/sftp
-useradd -d /uploads/${SFTP_USER} -G sftp ${SFTP_USER} -s /usr/sbin/nologin
-echo "${SFTP_USER}:${SFTP_PASS}" | chpasswd
-chown ${SFTP_USER}:sftp -R /uploads/${SFTP_USER}/sftp
+
+for i in "${!users[@]}"; do
+  echo Creating user ${users[i]}
+  mkdir -p /uploads/${users[i]}/sftp
+  useradd -d /uploads/${users[i]} -G sftp ${users[i]} -s /usr/sbin/nologin
+  chown ${users[i]}:sftp -R /uploads/${users[i]}/sftp
+  echo "${users[i]}:${passwords[i]}" | chpasswd
+  echo User ${users[i]} created
+done
 
 printf "\n\033[0;44m---> Starting the SSH server.\033[0m\n"
 
