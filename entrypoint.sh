@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-users=("$SFTP_USER")
-passwords=("$SFTP_PASS")
+users="$SFTP_USER"
+passwords="$SFTP_PASS"
 
 printf "\n\033[0;44m---> Creating SFTP user.\033[0m\n"
 
