@@ -11,6 +11,8 @@ RUN apt-get update \
     nano \
     openssh-server
 
+RUN mkdir /uploads
+
 COPY sshd_config /etc/ssh/sshd_config
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
