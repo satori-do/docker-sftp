@@ -19,7 +19,9 @@ done
 
 printf "\n\033[0;44m---> Starting the SSH server.\033[0m\n"
 
-service ssh start
-service ssh status
+# service ssh start
+# service ssh status
+
+mkdir -p /run/sshd
 
 exec "$@"

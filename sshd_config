@@ -5,10 +5,9 @@ X11Forwarding no
 AllowTcpForwarding no
 AllowAgentForwarding no
 PermitTunnel no
- 
+
 Subsystem sftp internal-sftp
 Match Group sftp
-    ChrootDirectory %h
     X11Forwarding no
     AllowTcpForwarding no
     AllowAgentForwarding no
