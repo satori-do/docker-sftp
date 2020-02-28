@@ -19,7 +19,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-# CMD tail -f /dev/null
-# CMD sshd
-
 CMD ["/usr/sbin/sshd", "-DDD", "-e"]
